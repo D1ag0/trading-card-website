@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTS-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                margin: 0px;    
+            }
+            .header-top-row {
+                width: 100%;
+                height: 40px;
+                background-color: #2e2e2e;
+            }
+            .container {
+                width: 1100px;
+                height: auto;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .h-top-row {
+                display: flex;
+                margin: 0;
+                padding: 0;
+                height: 40px;
+                color: #ffffff;
+                
+            }
+            .h-top-left {
+                flex: 70%;
+                font-size: 28px;
+                text-align: center;
+                padding: 1px 0;
+                
+            }
+            .h-top-right {
+                flex: 30%;
+            }
+            
+            .h-top-nav {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                
+            }
+            .h-top-nav li {
+                float: left;
+                
+            }
+            .h-top-nav li a {
+                display: block;
+                padding: 8px 9px;
+                margin: 4px 4px;
+                color: #ffffff;
+                text-decoration: none;
+                
+            }
+            .h-top-nav li :hover {
+                background-color: #000000;
+            }
+            /* ---- this is for top display board ---- */
+            .h-mid {
+                width: 100%;
+                height: 160px;
+                margin: auto;
+                background-color: #000000;
+                
+            }
+            .h-mid-board {
+                border: none;
+                width: 100%;
+                height: 160px;
+                overflow: hidden;
+            }
+            img {
+                width: 100%;
+                object-fit: cover;
+                object-position: 50% 56%;
+            }
+            /* ---- this is for head navbar ----*/
+            .h-navbar-container {
+                display: flex;
+            }
+            .h-left {
+                flex: 70%;
+            }
+            .h-right {
+                flex: 30%;
+                
+            }
+            .h-navrow {
+                width: 100%;
+                height: 40px;
+                background-color: #000000;
+                color: #ffffff;
+            }
+            .h-navbar {
+                list-style-type: none;
+                padding: 8px 0;
+                margin: 0;
+                margin-left: 16px;
+                overflow: hidden;
+            }
+            .h-navbar li {
+                float: left;
+                margin: 0;
+            }
+            .h-navbar li a {
+                padding: 0 11px;
+                margin: 0;
+                color: #ffffff;
+                text-decoration: none;
+                font-size: 18px;
+            }
+            .h-navbar li:hover {
+                background-color: #2e2e2e;
+            }
+            /* ---- this search bar ----*/
+            .search-container {
+                float: right;
+            }
+            .search-container input {
+                font-size: 17px;
+                padding: 2px 4px;
+                padding: 4px 12px;
+                margin: 2px 3px;
+            }
+            .search-container button {
+                float: right;
+                padding: 6px 8px;
+                margin: 2px 3px;
+                font-size: 15px;
+            }
+            /* This is CSS for containt bar*/
+            .content-topbar {
+                width: 100%;
+                height: 30px;
+                color: #ffffff;
+                background-color: #2e2e2e;
+            }
+            .content-map {
+                float: left;
+                padding: 0 4px;
+                margin: 3px 8px;
+                
+            }
+            /* -- CSS for sort dropdown -- */
+            .dropdownbt {
+                background-color: #778899;
+                color: #ffffff;
+                padding: 2px 20px;
+                font-size: 16px;
+            }
+            .dropdown {
+                float: right;
+                position: relative;
+                display: inline-block;
+                border: 1px solid red;
+            }
+            .dropdown-content {
+                position: absolute;
+                display: none;
+                right: 0;
+                background-color: #f9f9f9;
+                width: 140px;
+                box-shadow: 0px 8px 16px 0px;
+            }
+            .dropdown-content a {
+                color: #000000;
+                padding: 10px 16px;
+                font-size: 20px;
+                text-decoration: none;
+                display: block;
+            }
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+            /* this is CSS for gallery content*/
+            .gallery-border {
+                width: 100%;
+                height: auto;
+                margin-bottom: 10px;
+            }
+            .gallery-container {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .gallery {
+                flex: 18%;
+                max-width: 18%;
+                height: 100%;
+                padding: 6px;
+                margin-top: 19px;
+                margin-right: 8px;
+                margin-left: auto;
+                border: 1px solid #dddddd;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+            .gallery img {
+                width: 100%;
+                height: auto;
+            }
+            .gallery .desc {
+                text-align: center;
+                padding: 3px 0;
+            }
+            .price {
+                text-align: center;
+                padding: 3px;
+                font-size: 19px;
+            }
+            .gallery button {
+                padding: 3px 9px;
+                margin: 5px 36px;
+            }
+            /* -- this is CSS for footer -- */
+            .footer {
+                background-color: #000000;
+                color: #ffffff;
+            }
+            .footer-row {
+                width: 100%;
+                height: 300px;
+                display: flex;
+                flex-wrap: wrap;
+                
+            }
+            .clm-left {
+                
+                flex: 50%;
+            }
+            .clm-mid {
+                
+                flex: 25%;
+            }
+            .clm-right {
+                
+                flex: 25%;
+            }
+            /* -- this is CSS for footer left column*/ 
+            .SM-logo {
+                float: left;
+                margin: auto;
+                padding: 2px 4px;
+                width: 100%;
+                background-color: #000000;
+            }
+            .SM-logo li {
+                float: left;
+                display: block;
+                padding: 15px 23px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .SM-logo li img {
+                width: 50px;
+                height: 50px;
+                filter:invert(100%);
+            }
+            .join-bar {
+                text-align: center;
+                font-size: 18px;
+                padding: 8px;
+            }
+            .join-message {
+                
+                font-size: 18px;
+                padding: 0 20px;
+            }
+            .join-message li {
+                padding: 0 20px;
+            }
+            /* -- CSS for footer column mid*/
+            .clm-mid, .clm-right {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+                font-size: 20px;
+            }
+            .clm-mid li, .clm-right li{
+                display: block;
+                padding: 8px 9px;
+                margin: 6px 4px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- this is html for header-->
+        <div class="header">
+            <div class="header-top-row">
+                <div class="container">
+                    <!-- This is for top row of the header-->
+                    <div class="h-top-row">
+                        <div class="h-top-left">
+                            <div>This is where to display news and update!</div>
+                        </div>
+                        <div class="h-top-right">
+                            <ul class="h-top-nav">
+                                <li><a href="#">LOGIN</a></li>
+                                <li><a href="#">REGIST</a></li>
+                                <li><a href="#">MAP</a></li>
+                                <li><a href="#">MY CART</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- this is html for board picture-->    
+            <div class="h-mid">
+                <div class="container">
+                    <div class="h-mid-board">
+                        <img src="pic/magic-wallpaper.jpg" alt="magic" width="900" height="400"> 
+                    </div>
+                </div>  
+            </div>
+            <!-- this is html for header bottom row-->
+            <div class="h-navrow">
+                <div class="container">
+                    <div class="h-navbar-container">
+                        <div class="h-left">
+                            <ul class="h-navbar">
+                                <li><a href="#">HOME</a></li>
+                                <li><a href="#">GAMING</a></li>
+                                <li><a href="#">BOARD & CARD GAME</a></li>
+                                <li><a href="#">COLLECTABLE</a></li>
+                                <li><a href="#">CLOTHING</a></li>
+                                <li><a href="#">ON SALE</a></li>
+                            </ul>
+                        </div>
+                        <!-- this is html for search bar -->
+                        <div class="h-right">
+                            <div class="search-container">
+                                <form>
+                                    <input type="text" placeholder="Search..." name="search">
+                                    <button type="submit">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <!-- this is html for main content -->
+        <div>
+            <div class="container">
+                <div class="main-content">
+                    <!-- this is html for top row of content -->
+                    <div class="content-topbar">
+                        <div class="content-map">
+                            Home > Bord & Cardgames > Pokemon
+                        </div>
+                        <div class="dropdown">
+                            <button class="dropdownbt">Sort by</button>
+                            <div class="dropdown-content">
+                                <a href="#">Price</a>
+                                <a href="#">Latest</a>
+                                <a href="#">Name</a>
+                                <a href="#">Limited</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- this is html for gallery -->
+                    <div class="gallery-border">
+                        <div class="gallery-container">
+                            <div class="gallery">
+                                <a target="_blank" href="pic/cards/BWP_EN_BW23.png">
+                                    <img src="pic/cards/BWP_EN_BW23.png" alt="bwp_bw23" width="400" height="600">
+                                </a>
+                                <div class="desc"> Somthing about this products</div>
+                                <div class="price"> $9.99 </div>
+                                <button type="submit">ADD TO CART</button>
+                            </div>
+                            <div class="gallery">
+                                <a target="_blank" href="pic/cards/BWP_EN_BW36.png">
+                                    <img src="pic/cards/BWP_EN_BW36.png" alt="bwp_bw23" width="400" height="600">
+                                </a>
+                                <div class="desc"> Somthing about this products</div>
+                                <div class="price"> $9.99 </div>
+                                <button type="submit">ADD TO CART</button>
+                            </div>
+                            <div class="gallery">
+                                <a target="_blank" href="pic/cards/BWP_EN_BW37.png">
+                                    <img src="pic/cards/BWP_EN_BW37.png" alt="bwp_bw23" width="400" height="600">
+                                </a>
+                                <div class="desc"> Somthing about this products</div>
+                                <div class="price"> $9.99 </div>
+                                <button type="submit">ADD TO CART</button>
+                            </div>
+                            <div class="gallery">
+                                <a target="_blank" href="pic/cards/BWP_EN_BW38.png">
+                                    <img src="pic/cards/BWP_EN_BW38.png" alt="bwp_bw23" width="400" height="600">
+                                </a>
+                                <div class="desc"> Somthing about this products</div>
+                                <div class="price"> $9.99 </div>
+                                <button type="submit">ADD TO CART</button>
+                            </div>
+                            <div class="gallery">
+                                <a target="_blank" href="pic/cards/BWP_EN_BW54.png">
+                                    <img src="pic/cards/BWP_EN_BW54.png" alt="bwp_bw23" width="400" height="600">
+                                </a>
+                                <div class="desc"> Somthing about this products</div>
+                                <div class="price"> $9.99 </div>
+                                <button type="submit">ADD TO CART</button>
+                            </div>
+                            <div class="gallery">
+                                <a target="_blank" href="pic/cards/BWP_EN_BW61.png">
+                                    <img src="pic/cards/BWP_EN_BW61.png" alt="bwp_bw23" width="400" height="600">
+                                </a>
+                                <div class="desc"> Somthing about this products</div>
+                                <div class="price"> $9.99 </div>
+                                <button type="submit">ADD TO CART</button>
+                            </div>
+                            <div class="gallery">
+                                <a target="_blank" href="pic/cards/BWP_EN_BW66.png">
+                                    <img src="pic/cards/BWP_EN_BW66.png" alt="bwp_bw23" width="400" height="600">
+                                </a>
+                                <div class="desc"> Somthing about this products</div>
+                                <div class="price"> $9.99 </div>
+                                <button type="submit">ADD TO CART</button>
+                            </div>
+                            <div class="gallery">
+                                <a target="_blank" href="pic/cards/BWP_EN_BW67.png">
+                                    <img src="pic/cards/BWP_EN_BW67.png" alt="bwp_bw23" width="400" height="600">
+                                </a>
+                                <div class="desc"> Somthing about this products</div>
+                                <div class="price"> $9.99 </div>
+                                <button type="submit">ADD TO CART</button>
+                            </div>
+                            <div class="gallery">
+                                <a target="_blank" href="pic/cards/BWP_EN_BW69.png">
+                                    <img src="pic/cards/BWP_EN_BW69.png" alt="bwp_bw23" width="400" height="600">
+                                </a>
+                                <div class="desc"> Somthing about this products</div>
+                                <div class="price"> $9.99 </div>
+                                <button type="submit">ADD TO CART</button>
+                            </div>
+                            <div class="gallery">
+                                <a target="_blank" href="pic/cards/BWP_EN_BW71.png">
+                                    <img src="pic/cards/BWP_EN_BW71.png" alt="bwp_bw23" width="400" height="600">
+                                </a>
+                                <div class="desc"> Somthing about this products</div>
+                                <div class="price"> $9.99 </div>
+                                <button type="submit">ADD TO CART</button>
+                            </div>
+                            <div class="gallery">
+                                <a target="_blank" href="pic/cards/BWP_EN_BW81.png">
+                                    <img src="pic/cards/BWP_EN_BW81.png" alt="bwp_bw23" width="400" height="600">
+                                </a>
+                                <div class="desc"> Somthing about this products</div>
+                                <div class="price"> $9.99 </div>
+                                <button type="submit">ADD TO CART</button>
+                            </div>
+                            <div class="gallery">
+                                <a target="_blank" href="pic/cards/BWP_EN_BW88.png">
+                                    <img src="pic/cards/BWP_EN_BW88.png" alt="bwp_bw23" width="400" height="600">
+                                </a>
+                                <div class="desc"> Somthing about this products</div>
+                                <div class="price"> $9.99 </div>
+                                <button type="submit">ADD TO CART</button>
+                            </div>
+                            <div class="gallery">
+                                <a target="_blank" href="pic/cards/BWP_EN_BW90.png">
+                                    <img src="pic/cards/BWP_EN_BW90.png" alt="bwp_bw23" width="400" height="600">
+                                </a>
+                                <div class="desc"> Somthing about this products</div>
+                                <div class="price"> $9.99 </div>
+                                <button type="submit">ADD TO CART</button>
+                            </div>
+                            <div class="gallery">
+                                <a target="_blank" href="pic/cards/BWP_EN_BW91.png">
+                                    <img src="pic/cards/BWP_EN_BW91.png" alt="bwp_bw23" width="400" height="600">
+                                </a>
+                                <div class="desc"> Somthing about this products</div>
+                                <div class="price"> $9.99 </div>
+                                <button type="submit">ADD TO CART</button>
+                            </div>
+                            <div class="gallery">
+                                <a target="_blank" href="pic/cards/BWP_EN_BW23.png">
+                                    <img src="pic/cards/BWP_EN_BW23.png" alt="bwp_bw23" width="400" height="600">
+                                </a>
+                                <div class="desc"> Somthing about this products</div>
+                                <div class="price"> $9.99 </div>
+                                <button type="submit">ADD TO CART</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- this is html for footer-->
+        <div class="footer">
+            <div class="container">
+                <div class="footer-row">
+                    <div class="clm-left">
+                        <div class="SM-container">
+                            <ul class="SM-logo">
+                                <li><img src="pic/facebook.webp" alt="FB" width="20px" height="20px"></li>
+                                <li><img src="pic/in.webp" alt="IN" width="20px" height="20px"></li>
+                                <li><img src="pic/pinterest.webp" alt="PIN" width="20px" height="20px"></li>
+                                <li><img src="pic/tweet.webp" alt="TWE" width="20px" height="20px"></li>
+                                <li><img src="pic/youtube.webp" alt="YTB" width="20px" height="20px"></li>
+                            </ul>
+                        </div>
+                        <div class="join-bar">
+                            JOIN US IN ABOVE SOCIAL MEDIA
+                        </div>
+                        <div class="join-message">
+                            <div> We are:</div>
+                            <ul>
+                                <li>Fast delivery</li>
+                                <li>Reliabe team</li>
+                                <li>Worldwid products</li>
+                                <li>Secure Proceture</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clm-mid">
+                        <ul class="clm-mid-li">
+                            <li>Who are we</li>
+                            <li>Our value</li>
+                            <li>Trade account</li>
+                            <li>Contact us</li>
+                            <li>Privacy Policy</li>
+                        </ul>
+                    </div>
+                    <div class="clm-right">
+                        <ul class="clm-right-li">
+                            <li>My account</li>
+                            <li>My orders</li>
+                            <li>Delivery fee&time</li>
+                            <li>Return policy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>          
+</html>
