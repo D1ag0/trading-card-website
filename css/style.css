@@ -75,3 +75,17 @@ body {
     padding-left: 6px;
     height: auto;
 }
+/* --  css for gaming.html--*/
+ .main-display {
+     background-color: #F0FFFF;
+ }
+
+ .display-container {
+     width: auto;
+     height: 1050px;
+     padding-top: 10px;
+     
+ }
+ .lft-nav {
+     
+ }
